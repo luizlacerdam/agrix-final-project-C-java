@@ -26,6 +26,9 @@ public class Person {
 
   private Role role;
 
+  /**
+   * Contructor person completo.
+   */
   public Person(Long id, String username, String password, Role role) {
     this.id = id;
     this.username = username;
