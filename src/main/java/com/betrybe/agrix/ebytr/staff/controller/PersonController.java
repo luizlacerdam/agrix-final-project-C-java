@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Person controller.
+ */
 @RestController
 @RequestMapping("/persons")
 public class PersonController {
@@ -28,6 +31,9 @@ public class PersonController {
     this.personService = personService;
   }
 
+  /**
+   * Rota post para criar novo usuario.
+   */
   @PostMapping
   public ResponseEntity<?> createNewPerson(@RequestBody PersonDto personDto) {
     Person newPerson = personService.create(personDto.toPerson());

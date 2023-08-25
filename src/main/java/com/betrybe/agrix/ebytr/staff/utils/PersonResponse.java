@@ -15,6 +15,9 @@ public class PersonResponse {
 
   private Role role;
 
+  /**
+   * PersonResponse Constructor.
+   */
   public PersonResponse(Person person) {
     this.id = person.getId();
     this.username = person.getUsername();
