@@ -1,3 +1,5 @@
+package com.betrybe.agrix.ebytr.staff.service;
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.betrybe.agrix.ebytr.staff.entity.Person;
