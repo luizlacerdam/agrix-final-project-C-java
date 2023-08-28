@@ -18,11 +18,11 @@ public class TokenService {
   @Value("${api.security.token.secret}")
   private String secret;
 
-  public String generateToken(Person person){
+  public String generateToken(String username){
     Algorithm algorithm = Algorithm.HMAC256(secret);
     return JWT.create()
         .withIssuer("agrix")
-        .withSubject(person.getUsername())
+        .withSubject(username)
         .withExpiresAt(generateExpirationDate())
         .sign(algorithm);
   }
