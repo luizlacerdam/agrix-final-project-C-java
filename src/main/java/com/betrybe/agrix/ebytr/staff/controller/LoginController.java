@@ -45,11 +45,11 @@ public class LoginController {
     UsernamePasswordAuthenticationToken usernamePassword =
         new UsernamePasswordAuthenticationToken(loginDto.username(), loginDto.password());
 
-    authenticationManager.authenticate(usernamePassword);
+    Authentication auth = authenticationManager.authenticate(usernamePassword);
 
+    Person person = (Person) auth.getPrincipal();
+    String token = tokenService.generateToken(person);
 
-    String token = tokenService.generateToken(loginDto.username());
-    System.out.println(token);
     return ResponseEntity.status(HttpStatus.OK).body(new LoginResDto(token));
   }
 

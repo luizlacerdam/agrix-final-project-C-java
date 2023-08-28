@@ -21,11 +21,12 @@ public class TokenService {
   /**
    * Generate token method.
    */
-  public String generateToken(String username) {
+  public String generateToken(Person person) {
     Algorithm algorithm = Algorithm.HMAC256(secret);
     return JWT.create()
         .withIssuer("agrix")
-        .withSubject(username)
+        .withSubject(person.getUsername())
+        .withClaim("role", person.getRole().getName())
         .withExpiresAt(generateExpirationDate())
         .sign(algorithm);
   }
