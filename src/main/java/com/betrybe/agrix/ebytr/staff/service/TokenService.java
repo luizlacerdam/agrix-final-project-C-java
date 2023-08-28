@@ -18,7 +18,10 @@ public class TokenService {
   @Value("${api.security.token.secret}")
   private String secret;
 
-  public String generateToken(String username){
+  /**
+   * Generate token method.
+   */
+  public String generateToken(String username) {
     Algorithm algorithm = Algorithm.HMAC256(secret);
     return JWT.create()
         .withIssuer("agrix")
@@ -27,7 +30,7 @@ public class TokenService {
         .sign(algorithm);
   }
 
-  private Instant generateExpirationDate(){
+  private Instant generateExpirationDate() {
     return LocalDateTime.now()
         .plusHours(2)
         .toInstant(ZoneOffset.of("-03:00"));

@@ -51,7 +51,6 @@ public class LoginController {
     String token = tokenService.generateToken(loginDto.username());
     System.out.println(token);
     return ResponseEntity.status(HttpStatus.OK).body(new LoginResDto(token));
-//    return new LoginResDto(token);
   }
 
 }
